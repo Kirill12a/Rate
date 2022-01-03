@@ -12,12 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = UIColor(red: 48/255, green: 176/255, blue: 199/255, alpha: 100)
         
-        var labelName: UILabel = {
-           var label = UILabel()
+        let labelName: UILabel = {
+            let label = UILabel()
             label.text = "Hello Kirill"
-            label.textColor = .blue
+            label.textColor = .black
+            label.font = UIFont(name: "Party LET Plain", size: 100)
     
             return label
         }()
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         }
         
     }
+    
 
 
 }
