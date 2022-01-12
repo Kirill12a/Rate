@@ -7,17 +7,30 @@
 
 import UIKit
 import SnapKit
+import Alamofire
+
 
 class ViewController: UIViewController {
     
+    private var apiKey = "6ff59d862ee60effee6304513c914c59"
+    
+//http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59 просто запрос с полученимем всех стран
+//http://api.countrylayer.com/v2/name/Russian?access_key=6ff59d862ee60effee6304513c914c59  запрос с получением страны на выбор
+//http://api.countrylayer.com/v2/capital/Moscow?access_key=6ff59d862ee60effee6304513c914c59 запрос с получением инфы о столице
+//http://api.countrylayer.com/v2/currency/eur?access_key=6ff59d862ee60effee6304513c914c59 запрос с получением инфы по валюте; типо в каких странах она (тут евро)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        reauest()
+//        reauest()
+        AF.request("http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59").response { response in
+            debugPrint(response)
+        }
         view.backgroundColor = UIColor(red: 48/255, green: 176/255, blue: 199/255, alpha: 100)
         
         let labelName: UILabel = {
             let label = UILabel()
-            label.text = "Hello Kirill"
+            label.text = "Меню"
             label.textColor = .black
             label.font = UIFont(name: "Party LET Plain", size: 100)
             
