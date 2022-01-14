@@ -18,85 +18,45 @@ class ViewController: UIViewController {
 //http://api.countrylayer.com/v2/name/Russian?access_key=6ff59d862ee60effee6304513c914c59  запрос с получением страны на выбор
 //http://api.countrylayer.com/v2/capital/Moscow?access_key=6ff59d862ee60effee6304513c914c59 запрос с получением инфы о столице
 //http://api.countrylayer.com/v2/currency/eur?access_key=6ff59d862ee60effee6304513c914c59 запрос с получением инфы по валюте; типо в каких странах она (тут евро)
+  let url = "http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59"
 
+  var infoCountryElement =  [InfoCountryElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        reauest()
-//        workinApi()
-//
-//        reauests() // это робит; это моя ласт функция
-        
+
+      var name: String?
+
+      let labelName: UILabel = {
+          let label = UILabel()
+//          label.text = "\(name ?? String())"
+          label.textColor = .black
+          label.font = UIFont(name: "Party LET Plain", size: 100)
+
+          return label
+      }()
+
+      HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
+        print(response[3].callingCodes)
+        print(response[3].capital)
+        DispatchQueue.main.async {
+          labelName.text = response[0].capital
+        }
+
+
+      }
+
         view.backgroundColor = UIColor(red: 48/255, green: 176/255, blue: 199/255, alpha: 100)
         
-        let labelName: UILabel = {
-            let label = UILabel()
-            label.text = "Меню"
-            label.textColor = .black
-            label.font = UIFont(name: "Party LET Plain", size: 100)
-            
-            return label
-        }()
+
+
+      DispatchQueue.main.async {
+      }
         
         view.addSubview(labelName)
         labelName.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
-        
-        
-        
     }
-    
-    func reauest(){
-        guard let url = URL(string: "http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59") else {return}
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: url) { (data, response, error) in
-            guard let data = data, let response = response else {return}
-            do{
-                
-                //                           self.dataJson = try! JSONDecoder().decode([WeatherDatum].self, from: data)
-                
-                let json = try! JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
-
-                DispatchQueue.main.async {
-                    //self.tableView.reloadData()
-                    print("Hello")
-//                    print(json)
-
-                }
-                //                           print(response)
-            }catch{
-                print(error.localizedDescription)
-            }
-        }.resume()
-        
-    }
-    
-    
-    func reauests(){
-                   guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
-                   
-                   let session = URLSession.shared
-            
-                   session.dataTask(with: url) { (data, response, error) in
-                       guard let data = data, let response = response else {return}
-                       
-                       do{
-                          
-                           let json = try! JSONSerialization.jsonObject(with: data, options: [])
-                           
-                           DispatchQueue.main.async {
-                               print("Hi")
-                           }
-                           print(json)
-                       }catch{
-                           print(error.localizedDescription)
-                       }
-                   }.resume()
-
-               }
 }
 

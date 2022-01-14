@@ -7,28 +7,45 @@
 
 import UIKit
 
+
+
+
+
+// Сделать чуть по другому с trello не очень подходит. Но идею в приницпе понял.
+// Но этот хелпер ПОЛНОСТЬЮ редакнуть,
+// тк. - Потому что есть ошибка при добавление в параметр model моей структуры
+// тк. - Есть проблема с json с сервера
+// + нужно чекнуть как писать let info = [И тут моя структура json] , просто я не понмю нужно ли писать так
+
 class HelperRequest{
 
   static var helper = HelperRequest()
 
-  static func workingURL<T:Decodable>(jsonPath path:String, model: T.Type, comletion: @escaping (T)->()){
+  //  public func printToConsole<T>(any: T){
+  //    print(any)
+  //  }
 
-    let url = URL(string: path)
 
-    URLSession.shared.dataTask(with: url!) { data, response, error in
+
+  public func decodeJSON<T: Decodable>(apiURL: String, mode: T.Type, comletion: @escaping(T)->()){
+    guard let url = URL(string: apiURL) else {return}
+    URLSession.shared.dataTask(with: url) { data, response, error in
       if error != nil {
-        print(error as! Error)
-      }else {
+        print(error as Any)
+      }else{
         let decoder = JSONDecoder()
-
-        do {
-          let results = try decoder.decode(model.self, from: data!)
-          print(results)
-        } catch let error as Error {
-          print(error.localizedDescription)
+        do{
+          let result = try decoder.decode(mode.self, from: data!)
+          comletion(result)
+        }catch{
+          print(error)
         }
       }
-    }
-
+    }.resume()
   }
+
+
+
+
+
 }
