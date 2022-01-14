@@ -23,9 +23,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        reauest()
-        AF.request("http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59").response { response in
-            debugPrint(response)
-        }
+//        workinApi()
+//
+//        reauests() // это робит; это моя ласт функция
+        
         view.backgroundColor = UIColor(red: 48/255, green: 176/255, blue: 199/255, alpha: 100)
         
         let labelName: UILabel = {
@@ -47,23 +48,24 @@ class ViewController: UIViewController {
     }
     
     func reauest(){
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
+        guard let url = URL(string: "http://api.countrylayer.com/v2/all?access_key=6ff59d862ee60effee6304513c914c59") else {return}
         
         let session = URLSession.shared
         
         session.dataTask(with: url) { (data, response, error) in
             guard let data = data, let response = response else {return}
-            
             do{
+                
                 //                           self.dataJson = try! JSONDecoder().decode([WeatherDatum].self, from: data)
                 
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
                 print(json)
-                
+
                 DispatchQueue.main.async {
-                    //                               self.tableView.reloadData()
+                    //self.tableView.reloadData()
                     print("Hello")
-                    
+//                    print(json)
+
                 }
                 //                           print(response)
             }catch{
@@ -74,5 +76,27 @@ class ViewController: UIViewController {
     }
     
     
+    func reauests(){
+                   guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
+                   
+                   let session = URLSession.shared
+            
+                   session.dataTask(with: url) { (data, response, error) in
+                       guard let data = data, let response = response else {return}
+                       
+                       do{
+                          
+                           let json = try! JSONSerialization.jsonObject(with: data, options: [])
+                           
+                           DispatchQueue.main.async {
+                               print("Hi")
+                           }
+                           print(json)
+                       }catch{
+                           print(error.localizedDescription)
+                       }
+                   }.resume()
+
+               }
 }
 
