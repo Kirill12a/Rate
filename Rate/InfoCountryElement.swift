@@ -15,7 +15,7 @@ struct InfoCountryElement: Decodable {
     let callingCodes: [String]
     let capital: String
     let altSpellings: [String]
-    let region: Region
+    let region: String
 }
 
 enum Region: String, Decodable {

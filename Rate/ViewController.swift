@@ -17,10 +17,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
   var size = UIScreen.main.bounds
   var dataTable:UITableView!
 
-  var itemstringArr: [InfoCountryElement] = [InfoCountryElement]()
-  var curentAnimalArray = [InfoCountryElement]()
+  let cellSpacingHeight: CGFloat = 100
 
-  let url = "http://api.countrylayer.com/v2/all?access_key=c1df170ea2bda03d28a3cd007a6951a8"
+  var itemstringArr: [InfoCountryElement] = [InfoCountryElement]()
+
+  let url = "http://api.countrylayer.com/v2/all?access_key=a9255b3696a46e6dd7d4314376401fbc"
 
 
     override func viewDidLoad() {
@@ -32,12 +33,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
      makeTable()
       HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
         self.itemstringArr = response
-        self.curentAnimalArray = response
         DispatchQueue.main.async {
           self.dataTable.reloadData()
         }
       }
     }
+
+
+
 
     func makeTable()
     {
@@ -65,6 +68,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
   }
 
+   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return cellSpacingHeight
+  }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -84,9 +90,20 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let identifier = "identifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: identifier)
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: identifier)}
 
-        }
+
+      cell!.backgroundColor = UIColor.white
+      cell!.layer.borderColor = UIColor.black.cgColor
+      cell!.layer.borderWidth = 10
+      cell?.layer.borderColor = tableView.backgroundColor?.cgColor
+      cell!.layer.cornerRadius = 8
+      cell!.clipsToBounds = true
+
+      //
+
+
+
 
         cell?.selectionStyle = .none
 //      cell?.textLabel?.text = itemstringArr[indexPath.row].capital
@@ -98,15 +115,48 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         return cell!
 
     }
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+                 cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1.0)
+                  UIView.animate(withDuration: 1.5,
+                                animations: {
+                                 cell.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
+                                }, completion: nil)
 
+             }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("indexPath.row = \(indexPath.row)")
 
 //        let push = PullView()
+      let detail = DetailViewController()
+      detail.text = itemstringArr[indexPath.row].capital
 
-//        self.present(push, animated: true, completion: nil)
+      if itemstringArr[indexPath.row].region == "Europe" {
+        detail.name = "europe"
+
+      }
+      if itemstringArr[indexPath.row].region == "Africa" {
+        detail.name = "africa"
+      }
+
+      if itemstringArr[indexPath.row].region == "Americas" {
+        detail.name = "americas"
+      }
+
+      if itemstringArr[indexPath.row].region == "Asia" {
+        detail.name = "asia"
+      }
+
+      if itemstringArr[indexPath.row].region == "Okeania" {
+        detail.name = "okeania"
+      }
+      print(itemstringArr[indexPath.row].region)
+      
+//      self.present(detail, animated: true, completion: nil) // либо такой переход
+      navigationController?.pushViewController(detail, animated: true)
     }
+
+
     public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print("indexPath.row = DeselectRow\(indexPath.row)")
     }

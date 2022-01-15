@@ -7,25 +7,9 @@
 
 import UIKit
 
-
-
-
-
-// Сделать чуть по другому с trello не очень подходит. Но идею в приницпе понял.
-// Но этот хелпер ПОЛНОСТЬЮ редакнуть,
-// тк. - Потому что есть ошибка при добавление в параметр model моей структуры
-// тк. - Есть проблема с json с сервера
-// + нужно чекнуть как писать let info = [И тут моя структура json] , просто я не понмю нужно ли писать так
-
 class HelperRequest{
 
   static var helper = HelperRequest()
-
-  //  public func printToConsole<T>(any: T){
-  //    print(any)
-  //  }
-
-
 
   public func decodeJSON<T: Decodable>(apiURL: String, mode: T.Type, comletion: @escaping(T)->()){
     guard let url = URL(string: apiURL) else {return}
@@ -43,9 +27,4 @@ class HelperRequest{
       }
     }.resume()
   }
-
-
-
-
-
 }
