@@ -18,6 +18,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
   var dataTable:UITableView!
 
   var itemstringArr: [InfoCountryElement] = [InfoCountryElement]()
+  var curentAnimalArray = [InfoCountryElement]()
 
   let url = "http://api.countrylayer.com/v2/all?access_key=c1df170ea2bda03d28a3cd007a6951a8"
 
@@ -31,6 +32,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
      makeTable()
       HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
         self.itemstringArr = response
+        self.curentAnimalArray = response
         DispatchQueue.main.async {
           self.dataTable.reloadData()
         }
@@ -66,9 +68,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    if searchBar.text == "" {
-      print("EBLAN")
-    }
+    
+    itemstringArr = itemstringArr.filter({ (country) -> Bool in
+      return country.name.lowercased().contains(searchText.lowercased())
+    })
+    dataTable.reloadData()
+
   }
 
 
