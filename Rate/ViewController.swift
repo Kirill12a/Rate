@@ -48,17 +48,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         dataTable.dataSource = self
         self.view.addSubview(dataTable)
 
-         //header для таблицы
-//        let  headerView:UIView = UIView(frame:CGRect(x:0,y:0,width:UIScreen.main.bounds.width,height:60))
-//        let  label = UILabel(frame:CGRect(x:20,y:20,width:270,height:30))
-//        label.text = ""
-//        label.numberOfLines = 0
-//        label.textColor = UIColor.orange
-//        label.font = .boldSystemFont(ofSize: 40)
-//        headerView.addSubview(label)
-//        headerView.backgroundColor = UIColor.blue
-//        dataTable?.tableHeaderView = headerView
-
       let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
       searchBar.delegate = self
       searchBar.showsScopeBar = true
@@ -68,7 +57,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
+
     itemstringArr = itemstringArr.filter({ (country) -> Bool in
       return country.name.lowercased().contains(searchText.lowercased())
     })
