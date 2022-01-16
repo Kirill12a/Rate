@@ -97,7 +97,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
       cell!.layer.borderColor = UIColor.black.cgColor
       cell!.layer.borderWidth = 10
       cell?.layer.borderColor = tableView.backgroundColor?.cgColor
-      cell!.layer.cornerRadius = 8
+      cell!.layer.cornerRadius = 30
       cell!.clipsToBounds = true
 
       //
@@ -117,7 +117,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
                  cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1.0)
-                  UIView.animate(withDuration: 1.5,
+    UIView.animate(withDuration: 0.2,
                                 animations: {
                                  cell.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
                                 }, completion: nil)
@@ -125,30 +125,29 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
              }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexPath.row = \(indexPath.row)")
-
-//        let push = PullView()
       let detail = DetailViewController()
-      detail.text = itemstringArr[indexPath.row].capital
+      detail.capital = itemstringArr[indexPath.row].capital
+      detail.topLevelDomain = itemstringArr[indexPath.row].topLevelDomain
+
 
       if itemstringArr[indexPath.row].region == "Europe" {
-        detail.name = "europe"
+        detail.continent = "europe"
 
       }
       if itemstringArr[indexPath.row].region == "Africa" {
-        detail.name = "africa"
+        detail.continent = "africa"
       }
 
       if itemstringArr[indexPath.row].region == "Americas" {
-        detail.name = "americas"
+        detail.continent = "americas"
       }
 
       if itemstringArr[indexPath.row].region == "Asia" {
-        detail.name = "asia"
+        detail.continent = "asia"
       }
 
       if itemstringArr[indexPath.row].region == "Okeania" {
-        detail.name = "okeania"
+        detail.continent = "okeania"
       }
       print(itemstringArr[indexPath.row].region)
       
@@ -166,6 +165,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return UITableViewCell.EditingStyle.init(rawValue: 1)!
     }
+
+  
 
 
 }
