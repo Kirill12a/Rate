@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
     imageView.contentMode = .scaleToFill
     imageView.layer.cornerRadius = 50 // хз так чи как
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.backgroundColor = .brown
+    imageView.backgroundColor = UIColor(red: 255/255, green: 228/255, blue: 196/255, alpha: 1)
     return imageView
   }()
 
@@ -61,43 +61,14 @@ class DetailViewController: UIViewController {
     return label
   }()
 
-  override func viewDidLoad() {
+  override func viewDidLoad()
+  {
     super.viewDidLoad()
-    preferenceViewElements()
-    characterImageView.image = UIImage(named: continent!)
-    view.backgroundColor = .orange
+    PreferenceViewElementDetailVC.preferenceView.preferenc(view: view, capitalLabel: capitalLabel, regionLabel: regionLabel, topLevelDomainLabel: topLevelDomainLabel, characterImageView: characterImageView)
+      characterImageView.image = UIImage(named: continent!)
+
+    view.backgroundColor = UIColor(red: 255/255, green: 228/255, blue: 196/255, alpha: 1)
   }
 
 
-  func preferenceViewElements(){
-
-    view.addSubview(capitalLabel)
-    capitalLabel.snp.makeConstraints { make in
-      make.left.equalToSuperview().offset(40)
-      make.height.equalTo(30)
-      make.top.equalToSuperview().offset(view.bounds.height / 3)
-    }
-
-
-    view.addSubview(regionLabel)
-    regionLabel.snp.makeConstraints { make in
-      make.left.equalToSuperview().offset(40)
-      make.top.equalTo(capitalLabel.snp_topMargin).offset(20)
-
-    }
-
-    view.addSubview(topLevelDomainLabel)
-    topLevelDomainLabel.snp.makeConstraints { make in
-      make.left.equalToSuperview().offset(40)
-      make.top.equalTo(regionLabel.snp_topMargin).offset(20)
-    }
-
-    view.addSubview(characterImageView)
-    characterImageView.snp.makeConstraints { make in
-      make.height.width.equalTo(200)
-//      make.center.equalToSuperview()
-      make.left.equalTo(capitalLabel.snp_rightMargin).offset(50)
-      make.top.equalToSuperview().offset(view.bounds.height / 4)
-    }
-  }
 }

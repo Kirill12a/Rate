@@ -33,7 +33,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
 
     view.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 100)
-    self.title = "Страны 🌏"
+    self.title = " 🌏"
 
     makeTable()
     HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
@@ -135,37 +135,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     detail.capital = itemstringArr[indexPath.row].capital
     detail.topLevelDomain = itemstringArr[indexPath.row].topLevelDomain
     detail.region = itemstringArr[indexPath.row].region
+//condition(detail: detail, indexPath: indexPath)
+    Conditions.conditions.condition(detail: detail, indexPath: indexPath, itemstringArr: itemstringArr)
 
 
-
-    if itemstringArr[indexPath.row].region == "Europe" {
-      detail.continent = "europe"
-
-    }
-    if itemstringArr[indexPath.row].region == "Africa" {
-      detail.continent = "africa"
-    }
-
-    if itemstringArr[indexPath.row].region == "Americas" {
-      detail.continent = "americas"
-    }
-
-    if itemstringArr[indexPath.row].region == "Asia" {
-      detail.continent = "asia"
-    }
-
-    if itemstringArr[indexPath.row].region == "Okeania" {
-      detail.continent = "okeania"
-    }
 
     //      self.present(detail, animated: true, completion: nil) // либо такой переход
     navigationController?.pushViewController(detail, animated: true)
   }
 
-
-  public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    print("indexPath.row = DeselectRow\(indexPath.row)")
-  }
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
