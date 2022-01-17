@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
+//"http://api.countrylayer.com/v2/all?access_key=a9255b3696a46e6dd7d4314376401fbc" должно робить, но теперь такая хрень, что приходит html страница
 
 
 
@@ -21,14 +22,18 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
   var itemstringArr: [InfoCountryElement] = [InfoCountryElement]()
 
-  let url = "http://api.countrylayer.com/v2/all?access_key=a9255b3696a46e6dd7d4314376401fbc"
+  let url = "http://api.countrylayer.com/v2/all?access_key=91e1506b1131d0de1f1b89dee09d1490"
 
+  private var apiKey = ""
 
+var titeleNavBar = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 100)
 
-        self.title = "Что купить 🛒"
+
+
+        view.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 100)
+        self.title = "Страны 🌏"
 
      makeTable()
       HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
@@ -36,6 +41,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         DispatchQueue.main.async {
           self.dataTable.reloadData()
         }
+
+
       }
     }
 
@@ -128,6 +135,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
       let detail = DetailViewController()
       detail.capital = itemstringArr[indexPath.row].capital
       detail.topLevelDomain = itemstringArr[indexPath.row].topLevelDomain
+      detail.region = itemstringArr[indexPath.row].region
+
 
 
       if itemstringArr[indexPath.row].region == "Europe" {
@@ -149,7 +158,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
       if itemstringArr[indexPath.row].region == "Okeania" {
         detail.continent = "okeania"
       }
-      print(itemstringArr[indexPath.row].region)
       
 //      self.present(detail, animated: true, completion: nil) // либо такой переход
       navigationController?.pushViewController(detail, animated: true)
@@ -165,9 +173,4 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return UITableViewCell.EditingStyle.init(rawValue: 1)!
     }
-
-  
-
-
 }
-
