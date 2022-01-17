@@ -22,7 +22,6 @@ class HelperRequest{
         do{
           let result = try decoder.decode(mode.self, from: data!)
           comletion(result)
-          print(result)
         }catch{
             print(" Не смог подключиться увы")
           print(error.localizedDescription)
