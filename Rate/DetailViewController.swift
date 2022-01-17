@@ -11,52 +11,55 @@ import SnapKit
 class DetailViewController: UIViewController {
 
 
-  var text: String?
+  var capital: String?
+  var continent:String?
+  var topLevelDomain: [String?] = [] // label.text = topLevelDomain[0] так буду выбирать када будет label для этого свойства
 
   private lazy var nameLabel: UILabel =
-      {
-          let label = UILabel()
-        label.text = text
-          label.textColor = .label
-          label.font = .systemFont(ofSize: 20, weight: .bold)
-          label.numberOfLines = 0
-          label.textAlignment = .left
-          label.translatesAutoresizingMaskIntoConstraints = false
-          return label
-      }()
+  {
+    let label = UILabel()
+    label.text = capital
+
+    label.textColor = .label
+    label.font = .systemFont(ofSize: 20, weight: .bold)
+    label.numberOfLines = 0
+    label.textAlignment = .left
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
 
   private lazy var characterImageView: UIImageView =
-     {
-         let imageView = UIImageView()
-         imageView.contentMode = .scaleToFill
-         imageView.translatesAutoresizingMaskIntoConstraints = false
-       imageView.backgroundColor = .brown
-         return imageView
-     }()
+  {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleToFill
+    imageView.layer.cornerRadius = 50 // хз так чи как
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.backgroundColor = .brown
+    return imageView
+  }()
 
 
-  var name:String?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-      crea()
-
-      characterImageView.image = UIImage(named: name!)
-
-      view.backgroundColor = .orange
-    }
 
 
-  func crea(){
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    crea()
+
+    characterImageView.image = UIImage(named: continent!)
+
+    view.backgroundColor = .orange
+  }
+
+
+  func crea(){ // дать норм название
     view.addSubview(nameLabel)
 
     nameLabel.snp.makeConstraints { make in
 
       make.left.equalToSuperview().inset(2)
-                  make.right.equalToSuperview().inset(2)
-
-                  make.top.equalTo(view.snp_topMargin).offset(10)
+      
+      make.top.equalTo(view.snp_topMargin).offset(10)
 
 
     }
@@ -64,7 +67,8 @@ class DetailViewController: UIViewController {
     view.addSubview(characterImageView)
     characterImageView.snp.makeConstraints { make in
       make.height.width.equalTo(200)
-      make.top.equalTo(nameLabel.snp_bottomMargin).offset(20)
+//      make.top.equalTo(nameLabel.snp_bottomMargin).offset(20)
+      make.center.equalToSuperview()
     }
   }
 
