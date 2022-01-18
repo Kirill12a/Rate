@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import UIKit
-
+ 
 class Conditions
 {
 

@@ -83,18 +83,12 @@
 		D23E2A0427822CE700FB5133 /* Rate */ = {
 			isa = PBXGroup;
 			children = (
-				D23E2A0527822CE700FB5133 /* AppDelegate.swift */,
-				D23E2A0727822CE700FB5133 /* SceneDelegate.swift */,
-				D23E2A0E27822CE800FB5133 /* Assets.xcassets */,
-				D23E2A1027822CE800FB5133 /* LaunchScreen.storyboard */,
-				D23E2A0927822CE700FB5133 /* ViewController.swift */,
-				D291374127961ADF002902F1 /* Conditions.swift */,
-				D291371D279335AE002902F1 /* DetailViewController.swift */,
-				D291374727962072002902F1 /* DontUSE */,
-				D291374327961D2B002902F1 /* PreferenceViewElementDetailVC.swift */,
-				D291371F27937B72002902F1 /* ImageContinent.swift */,
-				D20F48F927913B720088A4FA /* InfoCountryElement.swift */,
-				D20F48F7279137450088A4FA /* HelperRequest.swift */,
+				D29137512796B02B002902F1 /* Helpers */,
+				D291374C2796ADFF002902F1 /* Delegate */,
+				D291374E2796AE26002902F1 /* Image */,
+				D291374D2796AE0D002902F1 /* LaunchScreen */,
+				D291374B2796ADEF002902F1 /* BaseModel */,
+				D29137502796B002002902F1 /* Screen */,
 				D23E2A1327822CE800FB5133 /* Info.plist */,
 			);
 			path = Rate;
@@ -104,8 +98,88 @@
 			isa = PBXGroup;
 			children = (
 				D291374527961FB5002902F1 /* CreateElements.swift */,
+				D291371F27937B72002902F1 /* ImageContinent.swift */,
 			);
 			path = DontUSE;
+			sourceTree = "<group>";
+		};
+		D29137492796ADB0002902F1 /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				D23E2A0927822CE700FB5133 /* ViewController.swift */,
+				D291374127961ADF002902F1 /* Conditions.swift */,
+			);
+			name = FirstView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		D291374A2796ADBA002902F1 /* SecondView */ = {
+			isa = PBXGroup;
+			children = (
+				D291374727962072002902F1 /* DontUSE */,
+				D291374327961D2B002902F1 /* PreferenceViewElementDetailVC.swift */,
+				D291371D279335AE002902F1 /* DetailViewController.swift */,
+			);
+			path = SecondView;
+			sourceTree = "<group>";
+		};
+		D291374B2796ADEF002902F1 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				D20F48F927913B720088A4FA /* InfoCountryElement.swift */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		D291374C2796ADFF002902F1 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D23E2A0527822CE700FB5133 /* AppDelegate.swift */,
+				D23E2A0727822CE700FB5133 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		D291374D2796AE0D002902F1 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D23E2A1027822CE800FB5133 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		D291374E2796AE26002902F1 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				D23E2A0E27822CE800FB5133 /* Assets.xcassets */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		D291374F2796AF81002902F1 /* HelperRequestCountry */ = {
+			isa = PBXGroup;
+			children = (
+				D20F48F7279137450088A4FA /* HelperRequest.swift */,
+			);
+			name = HelperRequestCountry;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		D29137502796B002002902F1 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				D291374A2796ADBA002902F1 /* SecondView */,
+				D29137492796ADB0002902F1 /* FirstView */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		D29137512796B02B002902F1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D291374F2796AF81002902F1 /* HelperRequestCountry */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F96BA2EEB90814BB9F8B1374 /* Pods */ = {

@@ -8,9 +8,7 @@
 import UIKit
 
 class HelperRequest{
-
   static var helper = HelperRequest()
-  var vc = ViewController()
 
   public func decodeJSON<T: Decodable>(apiURL: String, mode: T.Type, comletion: @escaping(T)->()){
     guard let url = URL(string: apiURL) else {return}
