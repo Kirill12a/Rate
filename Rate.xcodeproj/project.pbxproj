@@ -499,7 +499,7 @@
 				DEVELOPMENT_TEAM = UJ8B9FFXUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "country info";
+				INFOPLIST_KEY_CFBundleDisplayName = "Сountry info";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -529,7 +529,7 @@
 				DEVELOPMENT_TEAM = UJ8B9FFXUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "country info";
+				INFOPLIST_KEY_CFBundleDisplayName = "Сountry info";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
