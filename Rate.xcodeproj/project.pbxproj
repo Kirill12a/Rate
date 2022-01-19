@@ -20,6 +20,10 @@
 		D291374227961ADF002902F1 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291374127961ADF002902F1 /* Conditions.swift */; };
 		D291374427961D2B002902F1 /* PreferenceViewElementDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291374327961D2B002902F1 /* PreferenceViewElementDetailVC.swift */; };
 		D291374627961FB5002902F1 /* CreateElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291374527961FB5002902F1 /* CreateElements.swift */; };
+		D291375627976DED002902F1 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291375527976DED002902F1 /* AppUtility.swift */; };
+		D291375A27976FA8002902F1 /* HexStringToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291375927976FA8002902F1 /* HexStringToUIColor.swift */; };
+		D291375D27981B0C002902F1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291375C27981B0C002902F1 /* UIViewController.swift */; };
+		D291375F27981B16002902F1 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D291375E27981B16002902F1 /* UISearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		D291374127961ADF002902F1 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
 		D291374327961D2B002902F1 /* PreferenceViewElementDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewElementDetailVC.swift; sourceTree = "<group>"; };
 		D291374527961FB5002902F1 /* CreateElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElements.swift; sourceTree = "<group>"; };
+		D291375527976DED002902F1 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		D291375927976FA8002902F1 /* HexStringToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexStringToUIColor.swift; sourceTree = "<group>"; };
+		D291375C27981B0C002902F1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		D291375E27981B16002902F1 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 		D29137492796ADB0002902F1 /* FirstView */ = {
 			isa = PBXGroup;
 			children = (
+				D291375B27981AF7002902F1 /* Extension */,
 				D23E2A0927822CE700FB5133 /* ViewController.swift */,
 				D291374127961ADF002902F1 /* Conditions.swift */,
 			);
@@ -168,6 +177,7 @@
 		D29137502796B002002902F1 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				D291375827976F97002902F1 /* Func */,
 				D291374A2796ADBA002902F1 /* SecondView */,
 				D29137492796ADB0002902F1 /* FirstView */,
 			);
@@ -177,9 +187,35 @@
 		D29137512796B02B002902F1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D291375727976EDC002902F1 /* ProhibitionOfDifferentViewPositions */,
 				D291374F2796AF81002902F1 /* HelperRequestCountry */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D291375727976EDC002902F1 /* ProhibitionOfDifferentViewPositions */ = {
+			isa = PBXGroup;
+			children = (
+				D291375527976DED002902F1 /* AppUtility.swift */,
+			);
+			path = ProhibitionOfDifferentViewPositions;
+			sourceTree = "<group>";
+		};
+		D291375827976F97002902F1 /* Func */ = {
+			isa = PBXGroup;
+			children = (
+				D291375927976FA8002902F1 /* HexStringToUIColor.swift */,
+			);
+			path = Func;
+			sourceTree = "<group>";
+		};
+		D291375B27981AF7002902F1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D291375C27981B0C002902F1 /* UIViewController.swift */,
+				D291375E27981B16002902F1 /* UISearchBar.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F96BA2EEB90814BB9F8B1374 /* Pods */ = {
@@ -308,8 +344,12 @@
 				D291372027937B72002902F1 /* ImageContinent.swift in Sources */,
 				D23E2A0A27822CE700FB5133 /* ViewController.swift in Sources */,
 				D20F48FA27913B720088A4FA /* InfoCountryElement.swift in Sources */,
+				D291375A27976FA8002902F1 /* HexStringToUIColor.swift in Sources */,
+				D291375627976DED002902F1 /* AppUtility.swift in Sources */,
+				D291375F27981B16002902F1 /* UISearchBar.swift in Sources */,
 				D23E2A0627822CE700FB5133 /* AppDelegate.swift in Sources */,
 				D291374627961FB5002902F1 /* CreateElements.swift in Sources */,
+				D291375D27981B0C002902F1 /* UIViewController.swift in Sources */,
 				D291371E279335AE002902F1 /* DetailViewController.swift in Sources */,
 				D291374227961ADF002902F1 /* Conditions.swift in Sources */,
 				D23E2A0827822CE700FB5133 /* SceneDelegate.swift in Sources */,
@@ -459,6 +499,7 @@
 				DEVELOPMENT_TEAM = UJ8B9FFXUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "country info";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -488,6 +529,7 @@
 				DEVELOPMENT_TEAM = UJ8B9FFXUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "country info";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
