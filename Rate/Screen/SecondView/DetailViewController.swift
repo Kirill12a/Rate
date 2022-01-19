@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
     imageView.contentMode = .scaleToFill
     imageView.layer.cornerRadius = 50 // хз так чи как
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.backgroundColor = UIColor(red: 255/255, green: 228/255, blue: 196/255, alpha: 1)
+    imageView.backgroundColor = HexStringToUIColor.hexStringToUIColor(hex: "cdb4db")
     return imageView
   }()
 
@@ -65,9 +65,10 @@ class DetailViewController: UIViewController {
   {
     super.viewDidLoad()
     PreferenceViewElementDetailVC.preferenceView.preferenc(view: view, capitalLabel: capitalLabel, regionLabel: regionLabel, topLevelDomainLabel: topLevelDomainLabel, characterImageView: characterImageView)
-      characterImageView.image = UIImage(named: continent!)
+      characterImageView.image = UIImage(named: continent ?? String())
 
-    view.backgroundColor = UIColor(red: 255/255, green: 228/255, blue: 196/255, alpha: 1)
+//    view.backgroundColor = self.hexStringToUIColor(hex: "bde0fe")
+    view.backgroundColor = HexStringToUIColor.hexStringToUIColor(hex: "bde0fe")
   }
 
 
