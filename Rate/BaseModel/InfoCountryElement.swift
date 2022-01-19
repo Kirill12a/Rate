@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - InfoCountryElement
-struct InfoCountryElement: Decodable {
+struct InfoCountryElement: Decodable
+{
     let name: String
     let topLevelDomain: [String]
     let alpha2Code, alpha3Code: String
@@ -18,7 +18,8 @@ struct InfoCountryElement: Decodable {
     let region: String
 }
 
-enum Region: String, Decodable {
+enum Region: String, Decodable
+{
     case africa = "Africa"
     case americas = "Americas"
     case asia = "Asia"

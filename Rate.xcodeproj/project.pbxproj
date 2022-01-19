@@ -91,8 +91,8 @@
 		D23E2A0427822CE700FB5133 /* Rate */ = {
 			isa = PBXGroup;
 			children = (
-				D29137512796B02B002902F1 /* Helpers */,
 				D291374C2796ADFF002902F1 /* Delegate */,
+				D29137512796B02B002902F1 /* Helpers */,
 				D291374E2796AE26002902F1 /* Image */,
 				D291374D2796AE0D002902F1 /* LaunchScreen */,
 				D291374B2796ADEF002902F1 /* BaseModel */,
@@ -177,9 +177,9 @@
 		D29137502796B002002902F1 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D291375827976F97002902F1 /* Func */,
-				D291374A2796ADBA002902F1 /* SecondView */,
 				D29137492796ADB0002902F1 /* FirstView */,
+				D291374A2796ADBA002902F1 /* SecondView */,
+				D291375827976F97002902F1 /* Func */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
