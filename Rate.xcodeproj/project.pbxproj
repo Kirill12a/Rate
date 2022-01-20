@@ -10,6 +10,7 @@
 		B05D32FF22AB9423FAE0C959 /* Pods_Rate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3CDEA4E960B0869B65CC9 /* Pods_Rate.framework */; };
 		D20F48F8279137450088A4FA /* HelperRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F48F7279137450088A4FA /* HelperRequest.swift */; };
 		D20F48FA27913B720088A4FA /* InfoCountryElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F48F927913B720088A4FA /* InfoCountryElement.swift */; };
+		D2254CF12799F9AA00219DAE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2254CF02799F9A900219DAE /* Protocol.swift */; };
 		D23E2A0627822CE700FB5133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E2A0527822CE700FB5133 /* AppDelegate.swift */; };
 		D23E2A0827822CE700FB5133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E2A0727822CE700FB5133 /* SceneDelegate.swift */; };
 		D23E2A0A27822CE700FB5133 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E2A0927822CE700FB5133 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		6AE3EBC0CE44E4FA81D0327F /* Pods-Rate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rate.debug.xcconfig"; path = "Target Support Files/Pods-Rate/Pods-Rate.debug.xcconfig"; sourceTree = "<group>"; };
 		D20F48F7279137450088A4FA /* HelperRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperRequest.swift; sourceTree = "<group>"; };
 		D20F48F927913B720088A4FA /* InfoCountryElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCountryElement.swift; sourceTree = "<group>"; };
+		D2254CF02799F9A900219DAE /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		D23E2A0227822CE700FB5133 /* Rate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23E2A0527822CE700FB5133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D23E2A0727822CE700FB5133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 				D291374E2796AE26002902F1 /* Image */,
 				D291374D2796AE0D002902F1 /* LaunchScreen */,
 				D291374B2796ADEF002902F1 /* BaseModel */,
-				D29137502796B002002902F1 /* Screen */,
+				D29137502796B002002902F1 /* Screens */,
 				D23E2A1327822CE800FB5133 /* Info.plist */,
 			);
 			path = Rate;
@@ -114,7 +116,7 @@
 		D29137492796ADB0002902F1 /* FirstView */ = {
 			isa = PBXGroup;
 			children = (
-				D291375B27981AF7002902F1 /* Extension */,
+				D291375B27981AF7002902F1 /* Extension&Protocol */,
 				D23E2A0927822CE700FB5133 /* ViewController.swift */,
 				D291374127961ADF002902F1 /* Conditions.swift */,
 			);
@@ -174,14 +176,14 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		D29137502796B002002902F1 /* Screen */ = {
+		D29137502796B002002902F1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				D29137492796ADB0002902F1 /* FirstView */,
 				D291374A2796ADBA002902F1 /* SecondView */,
 				D291375827976F97002902F1 /* Func */,
 			);
-			path = Screen;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		D29137512796B02B002902F1 /* Helpers */ = {
@@ -209,13 +211,14 @@
 			path = Func;
 			sourceTree = "<group>";
 		};
-		D291375B27981AF7002902F1 /* Extension */ = {
+		D291375B27981AF7002902F1 /* Extension&Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				D291375C27981B0C002902F1 /* UIViewController.swift */,
 				D291375E27981B16002902F1 /* UISearchBar.swift */,
+				D2254CF02799F9A900219DAE /* Protocol.swift */,
 			);
-			path = Extension;
+			path = "Extension&Protocol";
 			sourceTree = "<group>";
 		};
 		F96BA2EEB90814BB9F8B1374 /* Pods */ = {
@@ -355,6 +358,7 @@
 				D23E2A0827822CE700FB5133 /* SceneDelegate.swift in Sources */,
 				D291374427961D2B002902F1 /* PreferenceViewElementDetailVC.swift in Sources */,
 				D20F48F8279137450088A4FA /* HelperRequest.swift in Sources */,
+				D2254CF12799F9AA00219DAE /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

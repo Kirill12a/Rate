@@ -14,11 +14,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
   var size = UIScreen.main.bounds
   var dataTable:UITableView!
 
+
+
   let cellSpacingHeight: CGFloat = 100
 
   var itemstringArr: [InfoCountryElement] = [InfoCountryElement]()
 
-  let url = "http://api.countrylayer.com/v2/all?access_key=a686ac4245d9d528ce5ea2c261a9511d"
+  let url = "http://api.countrylayer.com/v2/all?access_key=6f615d801171cc0f27a43e87119fc997"
 
   private var apiKey = ""
   var titeleNavBar = ""
@@ -28,12 +30,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     self.setupHideKeyboardOnTap()
     AppUtility.lockOrientation(.portrait) // положение экрана
-    DispatchQueue.main.async { [self] in
+    DispatchQueue.main.async { [self]in
       dataTable.backgroundColor = HexStringToUIColor.hexStringToUIColor(hex: "a2d2ff")
     }
 
     view.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 100)
-    self.title = " 🌏"
+    self.title = "🌏"
 
     makeTable()
     HelperRequest.helper.decodeJSON(apiURL: url, mode: [InfoCountryElement].self) { response in
